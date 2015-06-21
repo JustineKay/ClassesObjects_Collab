@@ -18,13 +18,17 @@
 -(CGFloat)reciprocal;
 -(CGFloat)squared;
 -(CGFloat)clear;
+-(void)memoryStore;
+-(void)memoryRecall;
 
 
 @property (nonatomic) CGFloat accumulator;
 
 @end
 
-@implementation Calculator
+@implementation Calculator {
+    CGFloat memory;
+}
 
 // Override default init method to begin with a total of 0;
 -(id)init {
@@ -35,35 +39,66 @@
 }
 
 -(CGFloat)add:(CGFloat)n {
-    return _accumulator += n;
+    _accumulator += n;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)subtract:(CGFloat)n {
-    return _accumulator -= n;
+    _accumulator -= n;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)multiply:(CGFloat)n {
-    return _accumulator *= n;
+    _accumulator *= n;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)divide:(CGFloat)n {
-    return _accumulator /= n;
+    _accumulator /= n;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)changeSign{
-    return _accumulator = -_accumulator;
+    _accumulator = -_accumulator;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)reciprocal{
-    return _accumulator = 1 / _accumulator;
+    _accumulator = 1 / _accumulator;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)squared{
-    return _accumulator = _accumulator * _accumulator;
+    _accumulator *= _accumulator;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
 }
 
 -(CGFloat)clear{
-    return _accumulator = 0;
+    _accumulator = 0;
+    NSLog(@"%g\n", _accumulator);
+    return _accumulator;
+}
+
+-(void)memoryStore{
+    memory = _accumulator;
+    NSLog(@"Number %g has been stored in memory", memory);
+}
+
+-(void)memoryRecall{
+    _accumulator = memory;
+    NSLog(@"%g\n", _accumulator);
+}
+
+-(void)memoryClear{
+    memory = 0;
+    NSLog(@"Memory cleared");
 }
 
 @end
@@ -80,33 +115,40 @@ int main(int argc, const char * argv[]) {
         
         // create a variable to hold total and add 5
         [c add:5];
-        NSLog(@"%g\n", c.accumulator);
-        
+
         [c subtract:3];
-        NSLog(@"%g\n", c.accumulator);
         
         [c multiply:3.5];
-        NSLog(@"%g\n", c.accumulator);
         
         [c divide:2];
-        NSLog(@"%g\n", c.accumulator);
         
         [c changeSign];
-        NSLog(@"%g\n", c.accumulator);
         
         [c changeSign];
-        NSLog(@"%g\n", c.accumulator);
         
         [c reciprocal];
-        NSLog(@"%g\n", c.accumulator);
         
         [c squared];
-        NSLog(@"%g\n", c.accumulator);
         
         [c clear];
-        NSLog(@"%g\n", c.accumulator);
         
+        [c add:15];
         
+        [c memoryStore];
+        
+        [c clear];
+        
+        [c memoryRecall];
+        
+        [c multiply: 3];
+        
+        [c squared];
+        
+        [c memoryStore];
+        
+        [c memoryClear];
+        
+        [c memoryRecall];
         
     }
     return 0;
