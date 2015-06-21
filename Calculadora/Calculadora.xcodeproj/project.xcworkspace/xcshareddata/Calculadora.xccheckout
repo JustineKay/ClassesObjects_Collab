@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6BC0C8AC-D39B-4C73-9252-398CC9D9C695</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>37BEC2A3FAB0CD6D563790FF07AA87C0D4245DDF</key>
+		<string>https://github.com/JustineKay/ClassesObjects_Collab.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Calculadora/Calculadora.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>37BEC2A3FAB0CD6D563790FF07AA87C0D4245DDF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/JustineKay/ClassesObjects_Collab.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>37BEC2A3FAB0CD6D563790FF07AA87C0D4245DDF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>37BEC2A3FAB0CD6D563790FF07AA87C0D4245DDF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PairProgramming</string>
+		</dict>
+	</array>
+</dict>
+</plist>
