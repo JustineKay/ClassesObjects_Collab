@@ -14,17 +14,17 @@
 -(CGFloat)subtract:(CGFloat)n;
 -(CGFloat)multiply:(CGFloat)n;
 -(CGFloat)divide:(CGFloat)n;
+-(CGFloat)changeSign;
+-(CGFloat)reciprocal;
+-(CGFloat)squared;
+-(CGFloat)clear;
+
 
 @property (nonatomic) CGFloat accumulator;
 
 @end
 
-@implementation Calculator {
-    
-    CGFloat total;
-    CGFloat userEnteredNumber;
-    
-}
+@implementation Calculator
 
 // Override default init method to begin with a total of 0;
 -(id)init {
@@ -50,7 +50,27 @@
     return _accumulator /= n;
 }
 
+-(CGFloat)changeSign{
+    return _accumulator = -_accumulator;
+}
+
+-(CGFloat)reciprocal{
+    return _accumulator = 1 / _accumulator;
+}
+
+-(CGFloat)squared{
+    return _accumulator = _accumulator * _accumulator;
+}
+
+-(CGFloat)clear{
+    return _accumulator = 0;
+}
+
 @end
+
+
+
+
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -61,6 +81,32 @@ int main(int argc, const char * argv[]) {
         // create a variable to hold total and add 5
         [c add:5];
         NSLog(@"%g\n", c.accumulator);
+        
+        [c subtract:3];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c multiply:3.5];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c divide:2];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c changeSign];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c changeSign];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c reciprocal];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c squared];
+        NSLog(@"%g\n", c.accumulator);
+        
+        [c clear];
+        NSLog(@"%g\n", c.accumulator);
+        
+        
         
     }
     return 0;
