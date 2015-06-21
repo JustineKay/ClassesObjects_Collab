@@ -16,6 +16,8 @@
 -(NSInteger)pocket;
 -(void)setPin:(NSInteger)n;
 -(NSInteger)pin;
+-(NSInteger)removeFromPocket:(NSInteger)amount;
+-(void)addToPocket:(NSInteger)amount;
 
 @end
 
@@ -48,6 +50,21 @@
     return pin;
 }
 
+-(NSInteger)removeFromPocket:(NSInteger)amount{
+    if (amount <= pocket){
+        pocket -= amount;
+        return amount;
+    }else {
+        NSLog(@"How MUCH? You don't have that much. You only have %ld.", pocket);
+        return 0;
+    }
+    
+}
+
+-(void)addToPocket:(NSInteger)amount{
+    pocket += amount;
+}
+
 
 @end
 
@@ -61,6 +78,8 @@
 -(void)setPin2:(NSInteger)n;
 -(void)setPin3:(NSInteger)n;
 -(void)deposit:(NSInteger)amount withPin:(NSInteger)p;
+-(NSInteger)withdrawal:(NSInteger)amount withPin:(NSInteger)p;
+-(void)stateBalance;
 
 @end
 
@@ -94,10 +113,30 @@
 -(void)deposit:(NSInteger)amount withPin:(NSInteger)p {
     if(p == pin || p == pin2 || p == pin3) {
         balance += amount;
+        [self stateBalance];
     } else {
         NSLog(@"You do not have access to this account.");
     }
+}
 
+-(NSInteger)withdrawal:(NSInteger)amount withPin:(NSInteger)p {
+    if(p == pin || p == pin2 || p == pin3) {
+        if (amount<= balance){
+            balance -= amount;
+            [self stateBalance];
+            return amount;
+        }else {
+            NSLog(@"How MUCH? You don't have that much.");
+            [self stateBalance];
+        }
+    } else {
+        NSLog(@"You do not have access to this account.");
+    }
+    return 0;
+}
+
+-(void)stateBalance{
+    NSLog(@"Your balance is %ld.", balance);
 }
 
 
@@ -133,10 +172,15 @@ int main(int argc, const char * argv[]) {
         NSLog(@"%@'s bank balance is $%ld.\n", [gloria name], [jimenezShared balance]);
         
         [jimenezShared deposit:50 withPin: 2222];
-        [jimenezShared deposit:[gloria pocket] withPin:[gloria pin]];
+        [jimenezShared deposit:[gloria removeFromPocket:300] withPin:[gloria pin]];
         
         NSLog(@"%@'s bank balance is $%ld.\n", [gloria name], [jimenezShared balance]);
-
+        NSLog(@"%@ has $%ld in her pocket.\n", [gloria name], [gloria pocket]);
+        
+        [jimenezShared deposit:[gloria removeFromPocket:600] withPin:[gloria pin]];
+        [jimenezShared withdrawal:3000 withPin:[jorge pin]];
+        
+        
         
     }
     return 0;
