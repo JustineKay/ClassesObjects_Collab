@@ -124,7 +124,6 @@ int main(int argc, const char * argv[]) {
         [jorge setPocket:20];
         [jorge setPin:4321];
         
-        
         BankAccount *jimenezShared = [[BankAccount alloc]init];
         
         [jimenezShared setBalance:2000];
@@ -133,12 +132,11 @@ int main(int argc, const char * argv[]) {
         
         NSLog(@"%@'s bank balance is $%ld.\n", [gloria name], [jimenezShared balance]);
         
+        [jimenezShared deposit:50 withPin: 2222];
+        [jimenezShared deposit:[gloria pocket] withPin:[gloria pin]];
         
-        
-        
-        
-        
-        
+        NSLog(@"%@'s bank balance is $%ld.\n", [gloria name], [jimenezShared balance]);
+
         
     }
     return 0;
