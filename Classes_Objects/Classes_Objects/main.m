@@ -163,11 +163,18 @@ int main(int argc, const char * argv[]) {
         [jorge setPocket:20];
         [jorge setPin:4321];
         
+        
+        Patron *ventureCapitalist = [[Patron alloc] init];
+        [ventureCapitalist setName:@"Soros"];
+        [ventureCapitalist setPocket:50000];
+        [ventureCapitalist setPin:6666];
+        
         BankAccount *jimenezShared = [[BankAccount alloc]init];
         
         [jimenezShared setBalance:2000];
         [jimenezShared setPin: 1234];
         [jimenezShared setPin2: 4321];
+        [jimenezShared setPin3: 6666];
         
         NSLog(@"%@'s bank balance is $%ld.\n", [gloria name], [jimenezShared balance]);
         
@@ -179,6 +186,8 @@ int main(int argc, const char * argv[]) {
         
         [jimenezShared deposit:[gloria removeFromPocket:600] withPin:[gloria pin]];
         [jimenezShared withdrawal:3000 withPin:[jorge pin]];
+        
+        [jimenezShared deposit:[ventureCapitalist removeFromPocket:50000] withPin:6666];
         
         
         
