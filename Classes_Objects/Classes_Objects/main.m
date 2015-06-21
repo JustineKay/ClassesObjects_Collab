@@ -9,29 +9,77 @@
 #import <Foundation/Foundation.h>
 
 
-@interface bankAccount : NSObject
-
-- (void) showBalance: (NSInteger)bal;
+@interface Patron: NSObject
 
 
 @end
 
-@implementation bankAccount{
-    NSInteger balance;
+
+@implementation Patron{
+    NSString* name;
+    NSInteger pocket;
 }
 
--(void) showBalance{
-    NSLog(@"Your balance is %d", balance);
+-(void)setName:(NSString*)s {
+    name = s;
 }
+- (NSString*)name {
+    return name;
+}
+
+-(void)setPocket:(NSInteger)p {
+    pocket = p;
+}
+- (NSInteger)pocket {
+    return pocket;
+}
+
+
 
 @end
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
+@interface BankAccount : NSObject
+
+
+
+
+@end
+
+@implementation BankAccount{
+    NSInteger balance;
+}
+
+-(void)setBalance:(NSInteger)b {
+    balance = b;
+}
+- (NSInteger)balance {
+    return balance;
+}
+
+
+@end
+
+
+
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
+        Patron *gloria = [[Patron alloc]init];
+        
+        [gloria setName:@"Gloria"];
+        
+        [gloria setPocket:500];
+        
+        NSLog(@"%@ has $%ld in her pocket.\n", [gloria name], [gloria pocket]);
+        
+        
+        BankAccount *gloriaSavings = [[BankAccount alloc]init];
+        
+        [gloriaSavings setBalance:2000];
         
         
         
